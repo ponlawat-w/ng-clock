@@ -1,5 +1,8 @@
 <nav class="navbar navbar-light bg-light fixed-top">
-    <a href="#" class="navbar-brand">{{'title' | lang}}</a>
+    <a href="#" class="navbar-brand">
+        <i class="ti-time"></i>
+        {{'title' | lang}}
+    </a>
 </nav>
 
 <div class="container-fluid" id="content">
@@ -14,7 +17,10 @@
             <div class="time text-center">
                 {{timeService.getTimeString()}}
             </div>
-            <app-synchronize></app-synchronize>
+            <div class="text-center small text-secondary">
+                ({{(timeService.synchronized ? 'serverTime' : 'clientTime') | lang}})
+            </div>
+            <app-tabs></app-tabs>
         </div>
     </div>
 </div>

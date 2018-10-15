@@ -11,6 +11,7 @@ export class TimeService {
 
   public now: Date = new Date();
   public clientDelay: number;
+  public synchronized = false;
   public timerSubscription: Subscription;
   public serverTimeSubscription: Subscription;
 
@@ -18,7 +19,7 @@ export class TimeService {
     private languageService: LanguageService,
     private apiService: ApiService
   ) {
-    this.timerSubscription = interval(500).subscribe(() => {
+    this.timerSubscription = interval(200).subscribe(() => {
       this.now = this.clientDelay ?
         new Date(new Date().getTime() + this.clientDelay) : new Date();
     });
@@ -43,5 +44,6 @@ export class TimeService {
     const endTimestamp = result.requestFinishTime.getTime();
     const serverTimeOfEndTimestamp = result.body + Math.round(result.requestTime / 2);
     this.clientDelay = serverTimeOfEndTimestamp - endTimestamp;
+    this.synchronized = true;
   }
 }

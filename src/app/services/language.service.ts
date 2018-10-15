@@ -23,7 +23,10 @@ export class LanguageService {
       .map(language => language.split('-')[0])
       .filter(code => this.languageExist(code));
 
-    if (userLanguages.length) {
+    const localStorageLanguage = localStorage.getItem('language');
+    if (localStorageLanguage && this.locales[localStorageLanguage]) {
+      this.setLanguage(localStorageLanguage);
+    } else if (userLanguages.length) {
       this.setLanguage(userLanguages[0]);
     } else {
       this.setLanguage('th');
@@ -42,13 +45,14 @@ export class LanguageService {
     if (this.locales[code]) {
       this.currentLocale = this.locales[code];
       document.documentElement.setAttribute('lang', code);
+      localStorage.setItem('language', this.currentLocale.code);
     }
   }
 
-  public get(key: string): string {
+  public get(key: string, ...params: string[]): string {
     if (!this.currentLocale) {
       return `[[${key}]]`;
     }
-    return this.currentLocale.getString(key);
+    return this.currentLocale.getString(key, ...params);
   }
 }

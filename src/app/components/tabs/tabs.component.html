@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs" style="margin-top: 10px;">
+    <li *ngFor="let tab of tabs" class="nav-item">
+        <a class="nav-link small" style="padding: 10px 8px;" href="javascript:void(0);"
+            [class.active]="tab == currentTab" (click)="changeTab(tab);">
+            {{tab | lang}}
+        </a>
+    </li>
+</ul>
+<div style="margin-top: 10px">
+    <app-synchronize *ngIf="currentTab == 'tabSynchronize'"></app-synchronize>
+</div>

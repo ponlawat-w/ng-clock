@@ -1,25 +1,33 @@
 <button class="btn btn-outline-dark btn-sm" [disabled]="synchronizing" (click)="synchronize();">
   <span *ngIf="!synchronizing" class="ti-reload"></span>
-  {{(synchronizing ? 'synchronizing' : 'synchronize') | lang}}
+  {{(synchronizing ? 'synchronizing' : 'synchronize') | lang}}  
 </button>
-<span *ngIf="!synchronizing && synchronized" class="text-success" style="margin-left: 1em;">
+<div *ngIf="!synchronizing && synchronized"
+  class="text-success d-block d-md-inline"
+  style="margin-left: 1em;">
   <span class="ti-check"></span>
   {{'synchronized' | lang}}
-</span>
+</div>
 <div *ngIf="synchronized">
   <div style="padding: 5px 0;">
     <strong>
       {{'requestTime' | lang}}:
     </strong>
-    {{requestTime}}
-    {{'seconds' | lang}}
+    <span class="d-block d-md-inline">
+      {{requestTime}}
+      {{'seconds' | lang}}
+    </span>
   </div>
   <div style="padding: 5px 0;">
     <strong>
       {{'clientDelay' | lang}}:
     </strong>
-    {{clientDelay}}
-    {{'seconds' | lang}}
+    <span *ngIf="clientDelay < 0" class="d-block d-md-inline">
+      {{'serverBehind' | lang : abs(clientDelay)}}
+    </span>
+    <span *ngIf="clientDelay >= 0" class="d-block d-md-inline">
+      {{'clientBehind' | lang : abs(clientDelay)}}
+    </span>
   </div>
 </div>
 <div *ngIf="!synchronizing && synchronizationTooLong" class="alert alert-warning">

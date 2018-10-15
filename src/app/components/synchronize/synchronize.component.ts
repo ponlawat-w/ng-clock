@@ -70,4 +70,8 @@ export class SynchronizeComponent implements OnInit, OnDestroy {
     this.apiService.synchronize();
   }
 
+  abs(x: number): number {
+    return Math.abs(x);
+  }
+
 }

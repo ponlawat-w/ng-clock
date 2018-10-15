@@ -17,6 +17,7 @@ import localeJaExtra from '@angular/common/locales/extra/ja';
 import { registerLocaleData } from '@angular/common';
 import { SynchronizeComponent } from './components/synchronize/synchronize.component';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
+import { TabsComponent } from './components/tabs/tabs.component';
 
 registerLocaleData(localeTh, 'th', localeThExtra);
 registerLocaleData(localeEn, 'en', localeEnExtra);
@@ -28,7 +29,8 @@ registerLocaleData(localeJa, 'ja', localeJaExtra);
     AppComponent,
     LangPipe,
     SynchronizeComponent,
-    LanguageSelectorComponent
+    LanguageSelectorComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,24 +1,18 @@
 export abstract class Locale {
     public abstract code: string;
     public abstract name: string;
-    public abstract strings: {
-        title: string,
-        nowHeader: string,
+    public abstract strings: any;
 
-        synchronize: string,
-        synchronizing: string,
-        synchronized: string,
-
-        seconds: string,
-
-        requestTime: string,
-        clientDelay: string,
-
-        synchronizationTooLong: string
-    };
-
-    public getString(key: string) {
+    public getString(key: string, ...params: string[]) {
         if (this.strings[key]) {
+            if (params) {
+                let str: string = this.strings[key];
+                params.forEach((value, index) => {
+                    str = str.replace(`[[${index}]]`, value);
+                });
+                return str;
+            }
+
             return this.strings[key];
         }
 

@@ -7,14 +7,24 @@ export class SpanishLocale extends Locale {
         title: 'Reloj',
         nowHeader: 'Ahora',
 
+        serverTime: 'Tiempo del servidor',
+        clientTime: 'Tiempo del ciente',
+
+        tabSynchronize: 'Sincronización',
+        tabTimezone: 'Zonas Horarias',
+        tabDisplay: 'Formato',
+
         synchronize: 'Sincronizar con el servidor',
         synchronizing: 'Sincronizando…',
         synchronized: 'Sincronizado',
 
+        requestTime: 'Tiempo de sincronización',
+        clientDelay: 'Diferencia',
+
         seconds: 'segundos',
 
-        requestTime: 'Tiempo de sincronización',
-        clientDelay: 'El retraso del ordenador',
+        clientBehind: 'El cliente es [[0]] segundos más lento',
+        serverBehind: 'El cliente es [[0]] segundos más pronto',
 
         synchronizationTooLong: 'Sincronización fue más que un segundo, '
             + 'el tiempo sincronizado puede ser impreciso. '

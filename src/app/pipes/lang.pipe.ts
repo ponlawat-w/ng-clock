@@ -9,8 +9,8 @@ export class LangPipe implements PipeTransform {
 
   constructor(private languageService: LanguageService) {}
 
-  transform(value: string): any {
-    return this.languageService.get(value);
+  transform(value: string, ...params: string[]): any {
+    return this.languageService.get(value, ...params);
   }
 
 }

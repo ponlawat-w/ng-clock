@@ -1,5 +1,6 @@
 <div class="text-center">
-  <div *ngFor="let locale of languageService.localeList" class="d-inline" style="padding: 0 5px;">
+  <div *ngFor="let locale of languageService.localeList" class="d-inline" style="padding: 0 5px;"
+    lang="locale.code">
     <a href="javascript:void(0);" *ngIf="locale != languageService.currentLocale"
       (click)="languageService.setLanguage(locale.code);">
       {{locale.name}}
