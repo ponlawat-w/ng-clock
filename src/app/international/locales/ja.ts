@@ -23,8 +23,8 @@ export class JapaneseLocale extends Locale {
 
         seconds: '秒',
 
-        clientBehind: '端末が[[0]]秒遅い',
-        serverBehind: 'サーバーが[[0]]秒早い',
+        clientBehind: 'サーバーより[[0]]秒遅い',
+        serverBehind: 'サーバーより[[0]]秒早い',
 
         synchronizationTooLong: 'サーバーの時刻を取得する際に１秒以上かかりましたため、'
             + '今表示されてる時刻は実際より異なる可能性があります。'
