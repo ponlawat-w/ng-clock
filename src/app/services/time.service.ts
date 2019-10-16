@@ -32,12 +32,12 @@ export class TimeService {
 
   getDateString(date: Date = this.now): string {
     return new DatePipe(this.languageService.currentLocale.code)
-      .transform(date, 'yyyy/MM/dd', '+0700', this.languageService.currentLocale.code);
+      .transform(date, 'yyyy/MM/dd', null, this.languageService.currentLocale.code);
   }
 
   getTimeString(date: Date = this.now): string {
     return new DatePipe(this.languageService.currentLocale.code)
-      .transform(date, 'HH:mm:ss', '+0700', this.languageService.currentLocale.code);
+      .transform(date, 'HH:mm:ss', null, this.languageService.currentLocale.code);
   }
 
   subscribeSynchronization(result: SynchronizationEvent): void {
