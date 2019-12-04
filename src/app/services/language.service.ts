@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Locale } from '../international/locale';
 import { ThaiLocale } from '../international/locales/th';
 import { EnglishLocale } from '../international/locales/en';
-import { SpanishLocale } from '../international/locales/es';
 import { JapaneseLocale } from '../international/locales/ja';
 
 @Injectable({
@@ -14,8 +13,7 @@ export class LanguageService {
   public locales = {
     'th': new ThaiLocale(),
     'ja': new JapaneseLocale(),
-    'en': new EnglishLocale(),
-    'es': new SpanishLocale()
+    'en': new EnglishLocale()
   };
 
   constructor() {
